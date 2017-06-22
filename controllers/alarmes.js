@@ -3,7 +3,7 @@ module.exports = (app) => {
 	var Alarme 		 	 = app.models.alarmes;
 	var elasticsearch 	 = app.middleware.elasticsearch;
 
-	elasticsearch.buildMapping(Alarme);
+	// elasticsearch.buildMapping(Alarme);
 
 	var AlarmesController = {
 

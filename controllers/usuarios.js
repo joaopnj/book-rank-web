@@ -1,7 +1,7 @@
 module.exports = (app) => {
 
 	const notifier = require('node-notifier');
-	var SlackBot   = require('slackbots');
+	const SlackBot = require('slackbots');
 	var Usuario = app.models.usuarios;
 
 	var UsuarioController = {
@@ -29,9 +29,8 @@ module.exports = (app) => {
 
 		update: (req,res) => {
 			Usuario.findById(req.params.id, (err, data) => {
-				if(err){
-					console.log(err);
-				} else{
+				if(err) console.log(err);
+				else{
 					var model   = data;
 					model.nome  = req.body.nome;
 					model.login = req.body.login;
@@ -49,11 +48,11 @@ module.exports = (app) => {
 
 		notification: (req,res) => {
 			notifier.notify({
-        	'title'  : "Só testando pra ver",
-        	'message': "Olá, minha primeira notificação",
-        	'icon '  : "../imagens/Ok.png",
-        	'sound'  : true,
-        	'wait'   : true // Wait with callback, until user action is taken against notification 
+				'title'  : "Só testando pra ver",
+				'message': "Olá, minha primeira notificação",
+				'icon '  : "../imagens/Ok.png",
+				'sound'  : true,
+				'wait'   : true // Wait with callback, until user action is taken against notification 
     		}, (err, response) => {
     		// Response is response from notification 
     		});
@@ -67,29 +66,19 @@ module.exports = (app) => {
 				name: 'alarme'
 			});
 			
-			console.log(bot);
-			bot.on('start', function(err) {
-				console.log("entrou na função start");
+			bot.on('start', (err) => {
+
 				if (err) console.log(err);
 				// more information about additional params https://api.slack.com/methods/chat.postMessage 
+
 				var params = {
 					icon_emoji: ':rotating_light:'
 				};
 				
 				// define channel, where bot exist. You can adjust it there https://my.slack.com/services  
-				bot.postMessageToChannel('hugo_oliveira', 'Teste de alarme!' , params);
+				bot.postMessageToChannel('buildada', 'Teste de alarme!' , params);
 				
 				res.redirect('/usuarios');
-				
-				// define existing username instead of 'user_name' 
-				// bot.postMessageToUser('user_name', 'meow!', params); 
-				
-				// If you add a 'slackbot' property,  
-				// you will post to another user's slackbot channel instead of a direct message 
-				// bot.postMessageToUser('user_name', 'meow!', { 'slackbot': true, icon_emoji: ':cat:' }); 
-				
-				// define private group instead of 'private_group', where bot exist 
-				// bot.postMessageToGroup('private_group', 'meow!', params); 
 			});
 		}
 	}
