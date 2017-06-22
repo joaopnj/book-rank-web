@@ -1,0 +1,33 @@
+extends ../layout
+
+block content 
+      h2 Usuários
+      br
+      table(class="table well")
+        thead 
+          tr
+            th ID:
+            th Nome:
+            th Login:
+            th Senha:
+            th Data:
+        tbody
+          each valor, i in JSON.parse(lista)
+            tr
+              td #{valor._id}
+              td #{valor.nome}
+              td #{valor.login}
+              td #{valor.senha}
+              td #{valor.cadastro}
+              td
+                a(href="/usuarios/edit/#{valor._id}", title="Editar", class="btn btn-info") Modificar
+                &nbsp
+                a(href="/usuarios/show/#{valor._id}", title="Visualizar", class="btn btn-primary") Visualizar
+      div(class="pull-right")
+        a(href="/" title="Home", class="btn btn-info") Voltar
+        &nbsp
+        a(href="/usuarios/create" title="Cadastrar", class="btn inline btn-success") Cadastrar
+        &nbsp
+        button(onclick="initPDF('#{lista}')" title="PDF", class="btn inline btn-warning") PDF
+        &nbsp
+        a(href="/usuarios/bot" title="Bot", class="btn inline btn-success") BOT

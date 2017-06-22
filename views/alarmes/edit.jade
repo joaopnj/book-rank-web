@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+	h2 Editar eventos
+	br
+	form(method="POST", action="/eventos/edit/#{value._id}", role="form")
+		div(class="from-group")
+			label Título:
+			input(type="text", name="titulo", class="form-control", placeholder="Bazar", value="#{value.titulo}" required)
+			br
+		div(class="from-group")
+			label Subtítulo:
+			input(type="text", name="subtitulo", class="form-control", placeholder="Bazar beneficente para roupa.", value="#{value.subtitulo}" required)
+			br
+		div(class="from-group")
+			label Data:
+			input(type="text", name="dataEvento", placeholder="00/00/0000", class="form-control", maxlength="10", value="#{value.dataEvento}", required)
+			br
+		div(class="from-group")
+			label Descrição:
+			textarea(class="form-control", name="descricao", rows="6" value="#{value.descricao}" placeholder="Descrição completa do evento.", required)
+			br
+		div(class="form-group")
+			input(type="submit", value="Cadastrar",class="btn btn-success")
+			br
+		a(href="/eventos" title="Voltar",class="btn btn-info") Voltar
