@@ -7,27 +7,23 @@ module.exports = (app) => {
         index: (req,res) => {
 			if(req.params.token === app.token){
 				Alarme.find( (err,data) => {
-					err ? console.log(err) : res.json(data);
+					return err ? console.log(err) : res.json(data);
 				});
 			}
-			else{
-				// acesso negado.
-				res.send(403);
-			}
+			// acesso negado.
+			return res.send(403);
 		},
 
 		insert: (req,res) => {
 			if(req.params.token === app.token){
-				model = new Alarme();
+				var model = new Alarme();
 				model = req.body;
 				model.save( (err) => {
-					err ? console.log(err) : res.send(200);
+					return err ? console.log(err) : res.send(200);
 				});
 			}
-			else{
-				// acesso negado.
-				res.send(403);
-			}
+			// acesso negado.
+			return res.send(403);
 
     	}
 	}

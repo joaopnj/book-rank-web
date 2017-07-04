@@ -4,7 +4,6 @@ const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const load         = require('express-load');
-const token        = 9575711200;
 
 var app = express();
 

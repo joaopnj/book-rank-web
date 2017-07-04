@@ -1,10 +1,10 @@
 module.exports = (app) => { 
 
-	var mongoosastic = require('mongoosastic');
+	const mongoosastic = require('mongoosastic');
 
     var ElasticSearchMiddleware = {
 
-        buildMapping : function buildMapping(objeto) {
+        buildMapping : (object) => {
         
             objeto.createMapping((err, mapping) => {
                 err ? console.log(err) : console.log("Mapping created! status: "+ mapping);
@@ -26,7 +26,7 @@ module.exports = (app) => {
             });
         },
 
-        connect : function connect(objeto) {
+        connect : (object) =>{
             objeto.plugin(mongoosastic, {
                 hosts: [
                     'localhost:9200'

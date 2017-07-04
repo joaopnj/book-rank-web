@@ -3,7 +3,7 @@ module.exports = (app) => {
     const mongoose = require('mongoose');
 
     var MongoDbMiddleware = {
-        connect : function connect(){
+        connect : () => {
             mongoose.connect('mongodb://localhost/atheneapi', (err) => {
                 if(err) console.log('Erro ao conectar no mongodb '+ err);
             });

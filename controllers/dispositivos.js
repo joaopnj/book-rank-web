@@ -9,16 +9,14 @@ module.exports = (app) => {
 				model = new Dispositivos();
 				model = req.body;
 				model.save( (err) => {
-					err ? console.log(err) : res.send(200);
+					return err ? console.log(err) : res.send(200);
 				});
 			}
-			else{
-				// acesso negado.
-				res.send(403);
-			}
+			// acesso negado.
+			return res.send(403);
+		}
 
-    	}
-	}
-
+    }
+	
 	return DispositivoController;
 }
