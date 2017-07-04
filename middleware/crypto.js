@@ -6,8 +6,6 @@ module.exports = (app) => {
     var CryptoMiddleware = {
         token : () => {
 		    bcrypt.hash(token, saltRounds, (err, hash) => {
-                console.log("Hash token: "+hash);
-                console.log("Token: "+token);
 				    return (err) ? console(err) : hash;
 			});
         }
