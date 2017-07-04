@@ -8,6 +8,7 @@
 ### How do I get set up? ###
 
 * Instalar o NodeJS.
+* Promova um npm install.
 
 ### Who do I talk to? ###
 
