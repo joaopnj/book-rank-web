@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
-load('middleware').then('models').then('controllers').then('routes').then('public/javascript').into(app);
+load('middleware').then('models').then('controllers').then('routes').into(app);
 
 var mongodb = app.middleware.mongodb; 
 
