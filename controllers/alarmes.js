@@ -5,7 +5,7 @@ module.exports = (app) => {
 	var AlarmesController = {
 
         index: (req,res) => {
-			if(token === 21321312321){
+			if(req.params.token === app.token){
 				Alarme.find( (err,data) => {
 					err ? console.log(err) : res.json(data);
 				});
@@ -17,7 +17,7 @@ module.exports = (app) => {
 		},
 
 		insert: (req,res) => {
-			if(token === 21321312321){
+			if(req.params.token === app.token){
 				model = new Alarme();
 				model = req.body;
 				model.save( (err) => {

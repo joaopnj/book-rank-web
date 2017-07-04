@@ -5,7 +5,7 @@ module.exports = (app) => {
 	var DispositivoController = {
 
 		insert: (req,res) => {
-			if(token === 21321312321){
+			if(req.params.token === app.token){
 				model = new Dispositivos();
 				model = req.body;
 				model.save( (err) => {
