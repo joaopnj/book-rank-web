@@ -5,25 +5,25 @@ module.exports = (app) => {
 	var AlarmesController = {
 
         index: (req,res) => {
-			if(req.params.token === app.token){
+			// if(req.params.token === app.token){
 				Alarme.find( (err,data) => {
-					return err ? console.log(err) : res.json(data);
+					err ? console.log(err) : res.json(data);
 				});
-			}
+			// }
 			// acesso negado.
-			return res.send(403);
+			// return res.send(403);
 		},
 
 		insert: (req,res) => {
-			if(req.params.token === app.token){
+			// if(req.params.token === app.token){
 				var model = new Alarme();
 				model = req.body;
 				model.save( (err) => {
 					return err ? console.log(err) : res.send(200);
 				});
-			}
+			// }
 			// acesso negado.
-			return res.send(403);
+			// return res.send(403);
 
     	}
 	}

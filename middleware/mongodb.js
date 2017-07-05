@@ -4,7 +4,7 @@ module.exports = (app) => {
 
     var MongoDbMiddleware = {
         connect : () => {
-            mongoose.createConnection('mongodb://localhost/atheneapi', (err) => {
+            mongoose.connect('mongodb://atheneapp:app2112@ds137891.mlab.com:37891/atheneapptest', (err) => {
                 if(err) console.log('Erro ao conectar no mongodb '+ err);
             });
         }
