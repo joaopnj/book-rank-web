@@ -6,11 +6,11 @@ module.exports = (app) => {
 
         buildMapping : (object) => {
         
-            objeto.createMapping((err, mapping) => {
+            object.createMapping((err, mapping) => {
                 err ? console.log(err) : console.log("Mapping created! status: "+ mapping);
             });
             
-            var stream  = objeto.synchronize();
+            var stream  = object.synchronize();
             var count   = 0;
 
             stream.on('data', () => {
@@ -27,7 +27,7 @@ module.exports = (app) => {
         },
 
         connect : (object) =>{
-            objeto.plugin(mongoosastic, {
+            object.plugin(mongoosastic, {
                 hosts: [
                     'localhost:9200'
                 ]
