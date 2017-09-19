@@ -9,9 +9,10 @@ module.exports = (app) => {
 			if(req.headers.authorization === token){
 				Alarme.find({ 'dispositivo.nome': req.params.dispositivo },(err,data) => {
 					return err ? console.log(err) : res.json(data);
-				}).sort({'dataHora' : -1})
+				})
+				.sort({'dataHora' : -1})
 				.limit(20);
-			}
+			}	
 			else{	
 				// acesso negado.
 				return res.send(403);

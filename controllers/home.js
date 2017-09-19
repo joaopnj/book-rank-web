@@ -7,7 +7,7 @@ module.exports = (app) => {
 		index: (req,res) => {
 			res.render('home/index');
 		},
-		token : (req, res) =>{
+		token : (req, res) => {
 			res.json(token);
 		}
 	}
