@@ -1,7 +1,7 @@
 module.exports = (app) => {
 
 	var Alarme 		 	 = app.models.alarmes;
-	const token 		 = "9575711200";
+	
 
 	var AlarmesController = {
 
