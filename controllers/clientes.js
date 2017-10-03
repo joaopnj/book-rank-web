@@ -21,7 +21,7 @@ module.exports = (app) => {
                                     if (err) console.log(err);
                                         bcrypt.hash(dados.login, salt, null, (err, hash) => {
                                             if (err) console.log(err);
-                                            res.status(200`).end();
+                                            res.status(200).end();
                                         });
                                     });
                                 }
