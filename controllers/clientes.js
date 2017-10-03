@@ -11,17 +11,17 @@ module.exports = (app) => {
                     Cliente.findOne({
                         login : client.email,
                     }, (err, dados) => {
-                        if(!dados){ res.status(400).send('O email não existe'); }
+                        if(!dados){ res.status(400) }
                         else{
                             bcrypt.compare(client.senha, dados.senha, (err, callback) => {
                                 if(err) console.log(err);
-                                if(!callback){ res.status(400).send('O senha não existe'); }
+                                if(!callback){ res.status(400)}
                                 else{
                                     bcrypt.genSalt(5, (err, salt) => {
                                     if (err) console.log(err);
                                         bcrypt.hash(dados.login, salt, null, (err, hash) => {
                                             if (err) console.log(err);
-                                            res.status(200).send('Login efetuado com sucesso! ');
+                                            res.status(200);
                                         });
                                     });
                                 }
