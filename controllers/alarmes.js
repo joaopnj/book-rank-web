@@ -1,11 +1,12 @@
 module.exports = (app) => {
 
 	var Alarme 		 	 = app.models.alarmes;
+	var token   = "9575711200";
 	
 
 	var AlarmesController = {
 
-        index: (req,res) => {
+        getAlarmeByDeviceName: (req,res) => {
 			if(req.headers.authorization === token){
 				Alarme.find({ 'dispositivo.nome': req.params.dispositivo },(err,data) => {
 					return err ? console.log(err) : res.json(data);
@@ -19,7 +20,20 @@ module.exports = (app) => {
 			}
 		},
 
-		insert: (req,res) => {
+		getAlarmeByClient: (req,res) => {
+			if(req.headers.authorization === token){
+				Alarme.find({ 'cliente': req.params.login }, (err, data) =>{
+
+				}).sort({'dataHora' : -1})
+				  .limit(20);
+			}
+			else{
+				return res.send(403);
+			}
+
+		},
+
+		insertAlarmeByApp: (req,res) => {
 			if(req.headers.authorization === token){
 				var model = new Alarme();
 				model = req.body;

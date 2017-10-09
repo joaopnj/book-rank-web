@@ -4,13 +4,13 @@ module.exports = (app) => {
 
 	var UsuarioController = {
 		index: (req,res) => {
-			// if(req.params.token === app.token){
+			if(req.params.token === app.token){
 				Usuario.find( (err,data) => {
 					return err ? console.log(err) : res.json(data);
 				});
-			// }
+			}
 			// acesso negado.
-			// return res.send(403);
+			return res.send(403);
 		},
 	}
 
