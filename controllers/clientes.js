@@ -11,11 +11,11 @@ module.exports = (app) => {
                     Cliente.findOne({
                         login : client.login,
                     }, (err, dados) => {
-                        if(!dados){ res.status(400).send("Login invalido"); }
+                        if(!dados){ res.send(400, "Erro Login " ); }
                         else{
                             bcrypt.compare(client.senha, dados.senha, (err, callback) => {
                                 if(err) console.log(err);
-                                if(!callback){ res.status(400).send("Senha Invalida");}
+                                if(!callback){ res.send(400, "Erro Senha" ); }
                                 else{
                                     bcrypt.genSalt(5, (err, salt) => {
                                     if (err) console.log(err);
