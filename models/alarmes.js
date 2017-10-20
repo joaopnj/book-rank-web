@@ -8,13 +8,13 @@ module.exports = (app) => {
     mensagem : String,
 	visto: {type: Boolean, default:false},
     	
-		dispositivo : {
+	dispositivo : {
     	nome: String,
     	imei: String,
     	tipo: String,    
     	statusBateria : Boolean,
-		
 	},
+	
     cliente : String,	
 	monitor: {type: String, default:"MEDICAR"},
 	sudo: {type: String, default:"LIFELINK"},

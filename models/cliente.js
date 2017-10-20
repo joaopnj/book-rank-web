@@ -6,7 +6,10 @@ module.exports = () => {
 // Criação de tabela cliente e sua estrutura.
 	var cliente  = new Schema({
 		nome: String,
-		cliente: String,
+		dispositivo:{ 
+			nome : String,
+			imei : String
+		},
 		login: {
 			type:     String,
 			unique:   true,
