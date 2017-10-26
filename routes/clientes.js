@@ -4,6 +4,6 @@ module.exports = (app) => {
     // methods de HTTP, GET, POST, PUT , DELETE
     app.get ("/cliente",                 clientes.getClientByLoginAndPassword );
     app.get ("/cliente/verifyDevice",    clientes.isDeviceAssociated);
-    app.post("/cliente/associateDevice", clientes.associateDeviceWithClient);
+    app.post("/cliente/getAdress",       clientes.getAdressFromClient);
         
 }

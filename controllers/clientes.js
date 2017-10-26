@@ -41,7 +41,7 @@ module.exports = (app) => {
 
                 Cliente.find( { "nome" : req.body.email }, (err, data) => {
                     if(err) { console.log(err); }
-                    if(data){
+                    if(data.cliente){
                         return res.send(400, "Erro, esse BL já está associado");
                     }
                     else{
@@ -60,6 +60,18 @@ module.exports = (app) => {
                 // acesso negado.
                 return res.send(403);
             }
+        },
+
+        getAdressFromClient : (req, res) => {
+            if(req.headers.authorization === token){
+                Cliente.findOne( {"login" : req.query.login }, (err, data) => {
+					if(err) { console.log(err); }
+					return data.cliente ? res.json({'macAdress' : data.client}) :  res.send(400, "Não possui BL "); 
+				});
+            }
+            else{
+                return res.send(403);
+            }            
         },
 
         isDeviceAssociated: (req, res) => {

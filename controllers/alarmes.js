@@ -4,16 +4,15 @@ module.exports = (app) => {
 	var Cliente			 = app.models.cliente;
 	var Dispositivo 	 = app.models.dispositivos;
 	var token   		 = "9575711200";
-	
 
 	var AlarmesController = {
 
         getAlarmeByDeviceName: (req,res) => {
 			if(req.headers.authorization === token){
-				Cliente.findOne({ 'login' : req.params.login }, (err, client) => {
+				Cliente.findOne({ 'login' : req.query.login }, (err, client) => {
 					if(err) return err;
-					if(client.cliente != null){
-						Alarme.find({ 'dispositivo.nome': req.params.dispositivo }, (err, alarm) => {
+					if(!client.cliente){
+						Alarme.find({ 'dispositivo.imei':  client.cliente}, (err, alarm) => {
 							return err ? console.log(err) : res.json(alarm);
 						})
 						.sort({'dataHora' : -1})
@@ -35,13 +34,13 @@ module.exports = (app) => {
 
 				var model = new Alarme();
 				
-				var objeto = req.body;
+				// var objeto = req.body;
 
-				model.mensagem		   = objeto.mensagem;
-				model.cliente 		   = objeto.cliente;
-				model.data 			   = objeto.data;
-				model.hora			   = objeto.hora;
-				model.dispositivo.nome = objeto.dispositivo.nome;
+				model.mensagem		   = req.body.mensagem;
+				model.cliente 		   = req.body.cliente;
+				model.data 			   = req.body.data;
+				model.hora			   = req.body.hora;
+				model.dispositivo.nome = req.body.dispositivo.nome;
 				
 				model.save( (err) => {
 					return err ? console.log(err) : res.send(200);
