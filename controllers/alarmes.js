@@ -19,13 +19,13 @@ module.exports = (app) => {
 						.limit(20);
 					}
 					else{
-						return res.send(400, " Dispositivo não associado ! ")
+						return res.sendStatus(400, " Dispositivo não associado ! ")
 					}
 				});
 			}	
 			else{	
 				// acesso negado.
-				return res.send(403);
+				return res.sendStatus(403);
 			}
 		},
 		
@@ -43,12 +43,12 @@ module.exports = (app) => {
 				model.dispositivo.nome = req.body.dispositivo.nome;
 				
 				model.save( (err) => {
-					return err ? console.log(err) : res.send(200);
+					return err ? console.log(err) : res.sendStatus(200);
 				});
 			}
 			else{
 				// acesso negado.
-				return res.send(403);
+				return res.sendStatus(403);
 			}
 		}
 		

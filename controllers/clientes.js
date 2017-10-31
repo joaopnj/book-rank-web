@@ -12,19 +12,19 @@ module.exports = (app) => {
                 Cliente.findOne({
                     login : client.login,
                 }, (err, dados) => {
-                    if(!dados){ res.send(400, "Erro Login " ); }
+                    if(!dados){ res.sendStatus(400, "Erro Login " ); }
                     else{
                         bcrypt.compare(client.senha, dados.senha, (err, callback) => {
                             if(err) console.log(err);
-                            if(!callback){ res.send(400, "Erro Senha" ); }
+                            if(!callback){ res.sendStatus(400, "Erro Senha" ); }
                             else{
                                 bcrypt.genSalt(5, (err, salt) => {
-                                if (err) console.log(err);
+                                    if (err) console.log(err);
                                     bcrypt.hash(dados.login, salt, null, (err, hash) => {
                                         if (err) console.log(err);
                                         res.json({ response : "Dados  ok" } );
                                     });
-                                });
+                                }   );
                             }
                         });
                     }
@@ -32,7 +32,7 @@ module.exports = (app) => {
             }	
             else{	
                 // acesso negado.
-                return res.send(403);
+                return res.sendStatus(403);
             }
         },
 
@@ -42,7 +42,7 @@ module.exports = (app) => {
                 Cliente.find( { "nome" : req.body.email }, (err, data) => {
                     if(err) { console.log(err); }
                     if(data.cliente){
-                        return res.send(400, "Erro, esse BL já está associado");
+                        return res.sendStatus(400, "Erro, esse BL já está associado");
                     }
                     else{
                         Cliente.findOne( { "nome" : req.body.email }, (err, data) => {
@@ -66,7 +66,7 @@ module.exports = (app) => {
             if(req.headers.authorization === token){
                 Cliente.findOne( {"login" : req.query.login }, (err, data) => {
 					if(err) { console.log(err); }
-					return data.cliente ? res.json({'macAdress' : data.client}) :  res.send(400, "Não possui BL "); 
+					return data.cliente ? res.sendStatus(200, data.cliente ) :  res.sendStatus(400, "Não possui BL "); 
 				});
             }
             else{
@@ -78,7 +78,7 @@ module.exports = (app) => {
 			if(req.headers.authorization === token){	
 				Cliente.findOne( {"login" : req.params.login }, (err, data) => {
 					if(err) { console.log(err); }
-					return data.cliente ? res.send(400, "Já possui BL associado") :  res.json( {"mensagem" : "Não possui BL "} ); 
+					return data.cliente ? res.sendStatus(400, "Já possui BL associado") :  res.json( {"mensagem" : "Não possui BL "} ); 
 				});
 			}
 			else{
