@@ -65,8 +65,8 @@ module.exports = (app) => {
         getAdressFromClient : (req, res) => {
             if(req.headers.authorization === token){
                 Cliente.findOne( {"login" : req.query.login }, (err, data) => {
-					if(err) { console.log(err); }
-					return data.cliente ? res.sendStatus(200, data.cliente ) :  res.sendStatus(400, "Não possui BL "); 
+                    if(err) { console.log(err); }
+					return data.cliente ? res.json(data) : res.sendStatus(400, "Não possui BL "); 
 				});
             }
             else{

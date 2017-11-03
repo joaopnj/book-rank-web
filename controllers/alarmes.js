@@ -11,7 +11,7 @@ module.exports = (app) => {
 			if(req.headers.authorization === token){
 				Cliente.findOne({ 'login' : req.query.login }, (err, client) => {
 					if(err) return err;
-					if(!client.cliente){
+					if(client.cliente){
 						Alarme.find({ 'dispositivo.imei':  client.cliente}, (err, alarm) => {
 							return err ? console.log(err) : res.json(alarm);
 						})
