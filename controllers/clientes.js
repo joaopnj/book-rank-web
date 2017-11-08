@@ -37,24 +37,14 @@ module.exports = (app) => {
         },
 
         associateDeviceWithClient : (req, res) => {
-            if(req.headers.authorization === token){
-
-                Cliente.find( { "nome" : req.body.email }, (err, data) => {
+            if(req.headers.authorization === token){                
+                Cliente.findOne( { "login" : req.body.login }, (err, data) => {
                     if(err) { console.log(err); }
-                    if(data.cliente){
-                        return res.sendStatus(400, "Erro, esse BL já está associado");
-                    }
-                    else{
-                        Cliente.findOne( { "nome" : req.body.email }, (err, data) => {
-                            if(err) { console.log(err); }
-                            data.dispositivo.imei = req.body.dispositivo;
-                            data.save( (err) => {
-                                return err ? console.log(err) : res.json( {"mensagem" : "Associação feita com sucesso!"} );
-                            });
-                        });
-                    }
+                    data.cliente = req.body.dispositivo;
+                    data.save( (err) => {
+                        return err ? console.log(err) : res.json( {"mensagem" : "Associação feita com sucesso!"} );
+                    });
                 });
-                
             }
             else{	
                 // acesso negado.
@@ -76,11 +66,12 @@ module.exports = (app) => {
 
         isDeviceAssociated: (req, res) => {
 			if(req.headers.authorization === token){	
-				Cliente.findOne( {"login" : req.params.login }, (err, data) => {
+				Cliente.findOne( {"cliente" : req.query.cliente }, (err, data) => {
 					if(err) { console.log(err); }
-					return data.cliente ? res.sendStatus(400, "Já possui BL associado") :  res.json( {"mensagem" : "Não possui BL "} ); 
-				});
-			}
+                    return data ? res.sendStatus(400, "Já possui BL associado") : 
+                        res.json({"mensagem" : 'BL aberto para ser associado'});
+                });
+            }
 			else{
 				return res.send(403);
 			}

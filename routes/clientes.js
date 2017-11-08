@@ -5,5 +5,6 @@ module.exports = (app) => {
     app.get ("/cliente",                 clientes.getClientByLoginAndPassword );
     app.get ("/cliente/verifyDevice",    clientes.isDeviceAssociated);
     app.get ("/cliente/getAdress",       clientes.getAdressFromClient);
+    app.put ("/cliente/associateDevice", clientes.associateDeviceWithClient)
         
 }

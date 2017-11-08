@@ -22,7 +22,7 @@ module.exports = () => {
 	});
 
 // Método para criptografia de senha
-	cliente.pre('save', (next) => {
+	cliente.pre('save', function(next) {
 		var cliente = this;
 		if (!cliente.isModified('senha')) return next();
 			bcrypt.genSalt(5, (err, salt) => {
