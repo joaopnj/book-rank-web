@@ -33,7 +33,6 @@ module.exports = (app) => {
 		insertAlarmeByApp: (req,res) => {
 			if(req.headers.authorization === token){
 
-
 				var model = new Alarme();
 
 				model.mensagem		   = req.body.mensagem;
@@ -46,6 +45,7 @@ module.exports = (app) => {
 				model.save( (err) => {
 					return err ? console.log(err) : res.sendStatus(200);
 				});
+				å
 			}
 			else{
 				// acesso negado.
