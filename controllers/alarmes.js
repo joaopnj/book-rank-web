@@ -3,7 +3,8 @@ module.exports = (app) => {
 	var Alarme 		 	 = app.models.alarmes;
 	var Cliente			 = app.models.cliente;
 	var Dispositivo 	 = app.models.dispositivos;
-	var token   		 = "9575711200";
+	var Util 	 		 = app.middleware.util;
+	var token   		 = app.middleware.crypto.token();
 
 	var AlarmesController = {
 
@@ -32,15 +33,15 @@ module.exports = (app) => {
 		insertAlarmeByApp: (req,res) => {
 			if(req.headers.authorization === token){
 
+
 				var model = new Alarme();
-				
-				// var objeto = req.body;
 
 				model.mensagem		   = req.body.mensagem;
 				model.cliente 		   = req.body.cliente;
 				model.data 			   = req.body.data;
 				model.hora			   = req.body.hora;
-				model.dispositivo.nome = req.body.dispositivo.nome;
+				model.dataHora	       = Util.criaData(data,hora);
+				model.dispositivo.imei = req.body.dispositivo.imei;
 				
 				model.save( (err) => {
 					return err ? console.log(err) : res.sendStatus(200);

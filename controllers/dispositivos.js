@@ -2,7 +2,7 @@ module.exports = (app) => {
 
 	var Dispositivos = app.models.dispositivos;
 	var Cliente 	 = app.models.cliente;
-	var token       = "9575711200";
+	var token        = app.middleware.crypto.token();
 
 	var DispositivoController = {
 

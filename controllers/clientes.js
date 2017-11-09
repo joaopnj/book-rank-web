@@ -1,7 +1,7 @@
 module.exports = (app) => {
     
-    var token       = "9575711200";
     var bcrypt      = require('bcrypt-nodejs');
+    var token       = app.middleware.crypto.token();
     var Cliente     = app.models.cliente;
     var Dispositivo = app.models.dispositivos;
 
