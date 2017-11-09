@@ -1,7 +1,6 @@
 module.exports = (app) => { 
-    var token      = '9575711200';
     const saltRounds = 10;
-    // const bcrypt     = require('bcrypt');
+    const token      = '9575711200';
 
     var CryptoMiddleware = {
         token : () => {
