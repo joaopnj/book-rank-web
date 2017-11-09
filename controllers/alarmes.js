@@ -47,7 +47,6 @@ module.exports = (app) => {
 				model.save( (err) => {
 					return err ? console.log(err) : res.sendStatus(200);
 				});
-				å
 			}
 			else{
 				// acesso negado.
