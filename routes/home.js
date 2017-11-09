@@ -3,5 +3,4 @@ module.exports = (app) => {
 
 	// methods de HTTP, GET, POST, PUT , DELETE
 	app.get('/',      home.index);
-	app.get('/senha', home.token);
 }
