@@ -43,7 +43,7 @@ module.exports = (app) => {
             if(req.headers.authorization === token){                
                 Cliente.findOne( { "login" : req.body.login }, (err, data) => {
                     if(err) { console.log(err); }
-                    data.cliente = req.body.dispositivo;
+                    data.identificador = req.body.dispositivo;
                     data.save( (err) => {
                         return err ? console.log(err) : res.json( {"mensagem" : "Associação feita com sucesso!"} );
                     });
@@ -60,7 +60,7 @@ module.exports = (app) => {
             if(req.headers.authorization === token){
                 Cliente.findOne( {"login" : req.query.login }, (err, data) => {
                     if(err) { console.log(err); }
-					return data.cliente ? res.json(data) : res.sendStatus(400, "Não possui BL "); 
+					return data.identificador ? res.json(data) : res.sendStatus(400, "Não possui BL "); 
 				});
             }
             else{
@@ -71,7 +71,7 @@ module.exports = (app) => {
         // Método que verifica se o dispositivo passado por parametro já está associado a alguem.
         isDeviceAssociated: (req, res) => {
 			if(req.headers.authorization === token){	
-				Cliente.findOne( {"cliente" : req.query.cliente }, (err, data) => {
+				Cliente.findOne( {"identificador" : req.query.identificador }, (err, data) => {
 					if(err) { console.log(err); }
                     return data ? res.sendStatus(400, "Já possui BL associado") : 
                         res.json({"mensagem" : 'BL aberto para ser associado'});

@@ -13,11 +13,11 @@ module.exports = (app) => {
 			if(req.headers.authorization === token){
 				Cliente.findOne({ 'login' : req.query.login }, (err, client) => {
 					if(err) return err;
-					if(client.cliente){
-						Alarme.find({ 'dispositivo.imei':  client.cliente}, (err, alarm) => {
+					if(client.identificador){
+						Alarme.find({ 'dispositivo.imei':  client.identificador}, (err, alarm) => {
 							return err ? console.log(err) : res.json(alarm);
 						})
-						.sort({'dataHora' : -1})
+						.sort({'dataHora' : 1})
 						.limit(20);
 					}
 					else{
@@ -41,7 +41,7 @@ module.exports = (app) => {
 				model.cliente 		   = req.body.cliente;
 				model.data 			   = req.body.data;
 				model.hora			   = req.body.hora;
-				model.dataHora	       = Util.criaData(data,hora);
+				model.dataHora	       = Util.criaData(model.data,model.hora);
 				model.dispositivo.imei = req.body.dispositivo.imei;
 				
 				model.save( (err) => {

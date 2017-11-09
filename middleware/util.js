@@ -10,7 +10,7 @@ module.exports = () => {
             dia   = data.substring(0,2);
             horas = hora.substring(0,2);
             min   = hora.substring(2);
-            return new Date(ano+"-"+mes+"-"+dia+"T"+horas+":"+min);
+            return new Date(ano+"-"+mes+"-"+dia+"T"+horas+min);
         }
     }
 
