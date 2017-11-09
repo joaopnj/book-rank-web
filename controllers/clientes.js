@@ -6,6 +6,8 @@ module.exports = (app) => {
     var Dispositivo = app.models.dispositivos;
 
     var ClienteController = {
+
+        // Método que autentica o login.
         getClientByLoginAndPassword : (req,res) => {
             if(req.headers.authorization === token){
                 var client = req.query;
@@ -36,6 +38,7 @@ module.exports = (app) => {
             }
         },
 
+        // Método que procura o cliente passado como parametro, e associa o despositivo achado por ele.
         associateDeviceWithClient : (req, res) => {
             if(req.headers.authorization === token){                
                 Cliente.findOne( { "login" : req.body.login }, (err, data) => {
@@ -52,6 +55,7 @@ module.exports = (app) => {
             }
         },
 
+        // Método que busca se o cliente possui associação com um BL ou não por mac adress.
         getAdressFromClient : (req, res) => {
             if(req.headers.authorization === token){
                 Cliente.findOne( {"login" : req.query.login }, (err, data) => {
@@ -64,6 +68,7 @@ module.exports = (app) => {
             }            
         },
 
+        // Método que verifica se o dispositivo passado por parametro já está associado a alguem.
         isDeviceAssociated: (req, res) => {
 			if(req.headers.authorization === token){	
 				Cliente.findOne( {"cliente" : req.query.cliente }, (err, data) => {

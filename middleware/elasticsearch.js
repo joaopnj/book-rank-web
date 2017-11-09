@@ -4,6 +4,7 @@ module.exports = (app) => {
 
     var ElasticSearchMiddleware = {
 
+        // Criação de uma replica para elastic search.
         buildMapping : (object) => {
         
             object.createMapping((err, mapping) => {

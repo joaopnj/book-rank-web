@@ -13,14 +13,14 @@ module.exports = (app) => {
 		athene	      : { type: String , default:"ATHENE"},
 		monitoramento : { type: String , default:"MONITORAMENTO"},
 		visto	 	  : { type: Boolean, default: false },
-		cadastro 	  : { type: Date, default: Date.now},
-		dataHora 	  : { type: Date },
+		dataHora 	  : { type: Date   },
+		cadastro 	  : { type: Date   , default: Date.now},
 
 		dispositivo : {
 			nome	 	  : { type: String },
 			imei		  : { type: String },
 			tipo		  : { type: String },    
-			bateriaFraca : { type: Boolean },
+			bateriaFraca  : { type: Boolean },
 		}
 
 	});

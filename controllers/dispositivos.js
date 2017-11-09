@@ -6,6 +6,7 @@ module.exports = (app) => {
 
 	var DispositivoController = {
 
+		// Método que insere um dispositivo.
 		insertDevice: (req,res) => {
 			if(req.headers.authorization === token){
 				model = new Dispositivos();

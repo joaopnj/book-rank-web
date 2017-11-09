@@ -8,6 +8,7 @@ module.exports = (app) => {
 
 	var AlarmesController = {
 
+		// Método que traz do banco os alarmes pelo despositivo passado por parametro e retorna a lista
         getAlarmeByDeviceName: (req,res) => {
 			if(req.headers.authorization === token){
 				Cliente.findOne({ 'login' : req.query.login }, (err, client) => {
@@ -30,6 +31,7 @@ module.exports = (app) => {
 			}
 		},
 		
+		// Método de inserção no banco dos alarmes vindos do athene app
 		insertAlarmeByApp: (req,res) => {
 			if(req.headers.authorization === token){
 

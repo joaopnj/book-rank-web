@@ -5,6 +5,8 @@ module.exports = () => {
     const bodyParser   = require('body-parser');
     
     var ConfigMiddleware = {
+
+      // Método que configura todos os pacotes do express
         express : (app, express) => {
                         // view engine setup
             app.set('views', __dirname + '/views');
