@@ -11,7 +11,6 @@ module.exports = () => {
 		nome		  : { type: String  },
 		identificador : { type: String  },
 		sessionpass	  : { type: String  },
-		excluido 	  : { type: Boolean },
 		cadastro	  : { type: Date,   default: Date.now},
 
 	});
