@@ -1,0 +1,49 @@
+extends ../layout
+
+block content
+	h1 Confirmação de dados
+	br
+	form(method="POST", action="/principal", role="form")
+		div(class="from-group")
+select(name="mensagem", class="form-control")
+    input(type="text", name="nome", class="form-control" required)
+        option(value="CURSO") Curso
+    option(value="SI") Sistemas de informação
+    br
+select(name="mensagem", class="form-control")
+    input(type="text", name="nome", class="form-control" required)
+        option(value="1") 1º
+        option(value="2") 2º
+        option(value="3") 3º
+        option(value="4") 4º
+        option(value="5") 5º
+        option(value="6") 6º
+        option(value="7") 7º
+        option(value="8") 8º
+    br
+select(name="mensagem", class="form-control")
+    input(type="text", name="nome", class="form-control" required)
+        option(value="Matérias") MATERIAS
+        option(value="Grafos") GRAFOS
+        option(value="TCC I")  TCC I
+        option(value="TCC II") TCC II
+        option(value="CALCULO I") CÁLCULO I 
+    br
+		div(class="from-group")
+			input(type="text", name="login", class="form-control" placeholder="Login : jose@dasilva.com" required)
+			br
+		div(class="from-group")
+			input(type="text", name="confirmaLogin", class="form-control" placeholder="CONFIRMAÇÃO DE LOGIN : jose@dasilva.com" required)
+			br
+		div(class="from-group")
+			input(type="password", name="senha", class="form-control"  placeholder="SENHA : **********" required)
+			br
+		div(class="from-group")
+			input(type="password", name="confirmaSenha", class="form-control"  placeholder="CONFIRMAÇÃO DE SENHA : **********" required)
+			br
+		div(class="form-group")
+			a(href="/" title="Voltar",class="btn btn-info form-control") Voltar
+			br
+			br
+			input(type="submit", value="Cadastrar",class="btn btn-primary form-control")
+			

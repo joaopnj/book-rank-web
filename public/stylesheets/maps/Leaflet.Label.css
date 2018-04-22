@@ -1,0 +1,67 @@
+.leaflet-label-pane { z-index: 650; }
+
+
+/* Base styles for the element that has a tooltip */
+.leaflet-label {
+  position: absolute;
+  padding: 6px;
+  background-color: #fff;
+  border: 1px solid #222;
+  color: #222;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+.leaflet-label.leaflet-clickable {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+
+.leaflet-label-top:before,
+.leaflet-label-bottom:before,
+.leaflet-label-left:before,
+.leaflet-label-right:before {
+  position: absolute;
+  pointer-events: none;
+  border: 6px solid transparent;
+  background: transparent;
+  content: "";
+}
+
+/* Directions */
+
+.leaflet-label-bottom:before,
+.leaflet-label-top:before {
+  left: 50%;
+  margin-left: -6px;
+}
+.leaflet-label-top:before {
+  bottom: 0;
+  margin-bottom: -12px;
+  border-top-color: #222;
+}
+.leaflet-label-bottom:before {
+  top: 0;
+  margin-top: -12px;
+  margin-left: -6px;
+  border-bottom-color: #222;
+}
+.leaflet-label-left:before,
+.leaflet-label-right:before {
+  top: 50%;
+  margin-top: -6px;
+}
+.leaflet-label-left:before {
+  right: 0;
+  margin-right: -12px;
+  border-left-color: #222;
+}
+.leaflet-label-right:before {
+  left: 0;
+  margin-left: -12px;
+  border-right-color: #222;
+}

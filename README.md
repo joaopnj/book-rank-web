@@ -2,7 +2,7 @@
 
 ### What is this repository for? ###
 
-* API desenvolvida para prover e receber dados do AtheneAPP, vindo de outros serviços como o ADA
+* API desenvolvida para prover e receber dados do BookRank, vindo de outros serviços.
 * 1.0
 
 ### How do I get set up? ###
@@ -12,4 +12,4 @@
 
 ### Who do I talk to? ###
 
-* João Jardim (joao.jardim@lifelink.com.br)
+* João Jardim (joaopnj19@gmail.com)

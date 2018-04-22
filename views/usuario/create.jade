@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+	h1 Cadastro de Usuários
+	br
+	form(method="POST", action="/usuario", role="form")
+		if errorUsuarioExistente
+			include ../error/errorUsuarioExistente
+		if errorLoginsNaoBatem
+			include ../error/errorLoginsNaoBatem
+		if errorSenhasNaoBatem
+			include ../error/errorSenhasNaoBatem
+		div(class="from-group")
+			label Nome
+			input(type="text", name="nome", class="form-control" placeholder=" NOME : José da Silva" required)
+			br
+		div(class="from-group")
+			label Login
+			input(type="text", name="login", class="form-control" placeholder="Login : jose@dasilva.com" required)
+			br
+		div(class="from-group")
+			label Confirmação de login
+			input(type="text", name="confirmaLogin", class="form-control" placeholder="CONFIRMAÇÃO DE LOGIN : jose@dasilva.com" required)
+			br
+		div(class="from-group")
+			label Senha
+			input(type="password", name="senha", class="form-control"  placeholder="SENHA : **********" required)
+			br
+		div(class="from-group")
+			label Confirmação de senha
+			input(type="password", name="confirmaSenha", class="form-control"  placeholder="CONFIRMAÇÃO DE SENHA : **********" required)
+			br
+		div(class="form-group")
+			a(href="/" title="Voltar",class="btn btn-info form-control") Voltar
+			br
+			br
+			input(type="submit", value="Cadastrar",class="btn btn-primary form-control")
+			

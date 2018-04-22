@@ -1,6 +1,5 @@
 module.exports = () => {
 
-
     Util = {
         // Método que cria objeto data a partir de uma string data, e uma string hora passadas por parametro.
         criaData : (data, hora) => {

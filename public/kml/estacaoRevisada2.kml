@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+	<Style id="west_campus_style">
+      <IconStyle>
+        <Icon>
+          <href>https://s18.postimg.org/qxwuql115/esta_o.png
+          </href>
+        </Icon>
+      </IconStyle>
+    </Style>
+	<Folder><name>estacao_fns_revisada</name>
+<Schema name="estacao_fns_revisada" id="estacao_fns_revisada">
+	<SimpleField name="Name" type="string"></SimpleField>
+	<SimpleField name="Description" type="string"></SimpleField>
+	<SimpleField name="nome" type="string"></SimpleField>
+	<SimpleField name="fer" type="string"></SimpleField>
+	<SimpleField name="sigla" type="string"></SimpleField>
+	<SimpleField name="km" type="string"></SimpleField>
+	<SimpleField name="municipio" type="string"></SimpleField>
+</Schema>
+  <Placemark>
+  	<name>Gaviao</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Gaviao</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PGV</SimpleData>
+		<SimpleData name="km">404</SimpleData>
+		<SimpleData name="municipio">Palmeirante</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-48.088541,-7.675651,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Pratinha</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Pratinha</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PRT</SimpleData>
+		<SimpleData name="km">500</SimpleData>
+		<SimpleData name="municipio">Tupiratins</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-48.208928,-8.457671,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Miracema</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Miracema</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PMR</SimpleData>
+		<SimpleData name="km">616</SimpleData>
+		<SimpleData name="municipio">Rio dos Bois</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-48.408667,-9.407706,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Paraiso</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Paraiso</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PRS</SimpleData>
+		<SimpleData name="km">666</SimpleData>
+		<SimpleData name="municipio">Miracema do Tocantins</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-48.551594,-9.789245,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Maravilha</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Maravilha</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PFM</SimpleData>
+		<SimpleData name="km">142</SimpleData>
+		<SimpleData name="municipio">Ribamar Fiquene</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.411172,-5.995619,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Cravinhos</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Cravinhos</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PCR</SimpleData>
+		<SimpleData name="km">47</SimpleData>
+		<SimpleData name="municipio">Cravinhos</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.412784,-5.254361,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Impeeratriz</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Imperatriz</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PIZ</SimpleData>
+		<SimpleData name="km">92</SimpleData>
+		<SimpleData name="municipio">Imperatriz</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.440097,-5.592745,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Porto Franco</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Porto Franco</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PPF</SimpleData>
+		<SimpleData name="km">200</SimpleData>
+		<SimpleData name="municipio">Porto Franco</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.406838,-6.458269,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Aguiarnopolis</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Aguiarnopolis</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PAN</SimpleData>
+		<SimpleData name="km">217</SimpleData>
+		<SimpleData name="municipio">Aguiarnópolis</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.471943,-6.566422,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Brejao</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Brejao</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PBJ</SimpleData>
+		<SimpleData name="km">273</SimpleData>
+		<SimpleData name="municipio">Darcinópolis</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.561796,-6.995976,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Babaculandia</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Babaculandia</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PBB</SimpleData>
+		<SimpleData name="km">311</SimpleData>
+		<SimpleData name="municipio">Babaçulândia</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.782901,-7.176602,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Araguaina</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Araguaina</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PAG</SimpleData>
+		<SimpleData name="km">358</SimpleData>
+		<SimpleData name="municipio">Araguaina</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-48.073271,-7.319648,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Palmeirante</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Palmeirante</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PPT</SimpleData>
+		<SimpleData name="km">451</SimpleData>
+		<SimpleData name="municipio">Palmeirante</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-48.221276,-8.064781,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Guarai</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Guarai</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PGR</SimpleData>
+		<SimpleData name="km">562</SimpleData>
+		<SimpleData name="municipio">Tupirama</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-48.372811,-8.954988,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Floresta</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Floresta</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PFL</SimpleData>
+		<SimpleData name="km">5</SimpleData>
+		<SimpleData name="municipio">Açailândia</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.393995,-4.927304,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Porto Nacional</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Porto Nacional</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PPN</SimpleData>
+		<SimpleData name="km">722</SimpleData>
+		<SimpleData name="municipio">Porto Nacional</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-48.561196,-10.202389,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Joao Lisboa</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">João Lisboa</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PJL</SimpleData>
+		<SimpleData name="km">66</SimpleData>
+		<SimpleData name="municipio">João Lisboa</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.360862,-5.388914,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  	<name>Floresta</name>
+  	<styleUrl>#west_campus_style</styleUrl>
+	<ExtendedData><SchemaData schemaUrl="#estacao_fns_revisada">
+		<SimpleData name="nome">Floresta</SimpleData>
+		<SimpleData name="fer">FNS</SimpleData>
+		<SimpleData name="sigla">PFL</SimpleData>
+		<SimpleData name="km">2,84</SimpleData>
+		<SimpleData name="municipio">Açailândia</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-47.402972633258379,-4.912088196074354,0</coordinates></Point>
+  </Placemark>
+</Folder></Document></kml>
+
+
