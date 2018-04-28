@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-	h1 Cadastro de Usuários
+	h3 Cadastro de Usuários
 	br
 	form(method="POST", action="/usuario", role="form")
 		if errorUsuarioExistente
@@ -13,6 +13,13 @@ block content
 		div(class="from-group")
 			label Nome
 			input(type="text", name="nome", class="form-control" placeholder=" NOME : José da Silva" required)
+			br
+		div(class="from-group")
+			label Papel no sistema: 
+			select(name="identificador", class="form-control" required)
+				option(value="") Selecione o papel
+				option(value="Aluno") Aluno
+				option(value="Professor") Professor
 			br
 		div(class="from-group")
 			label Login

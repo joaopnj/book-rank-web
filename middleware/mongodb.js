@@ -1,7 +1,7 @@
 module.exports = (app) => { 
 
     const mongoose = require('mongoose');
-    const mongourl = 'mongodb://localhost/bookrank';
+    const mongourl = 'mongodb://bookrank:rankbook@ds161459.mlab.com:61459/bookrank';
 
     var MongoDbMiddleware = {
 

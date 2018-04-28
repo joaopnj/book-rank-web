@@ -1,8 +1,14 @@
 module.exports = (app) => {
-    
-    var bcrypt      = require('bcrypt-nodejs');
-    var token       = app.middleware.crypto.token();
-    var User        = app.models.user;
+
+    var LocalStorage    = require('node-localstorage').LocalStorage;
+    localStorage        = new LocalStorage('./scratch');
+    var bcrypt          = require('bcrypt-nodejs');
+    var axios           = require('axios');
+    var token           = app.middleware.crypto.token();
+    var User            = app.models.user;
+    var DisciplinaAluno = app.models.disciplina_aluno;
+    var Disciplina      = app.models.disciplina;
+    var request         = require('request');
 
     var UserController = {
 
@@ -27,7 +33,22 @@ module.exports = (app) => {
                                 if (err) console.log(err);
                                 bcrypt.hash(data.login, salt, null, (err, hash) => {
                                     if (err) console.log(err);
-                                    res.render('usuario/confirmRegister', { user: data });
+                                    localStorage.setItem('user', data.login);
+                                    if (data.isFirstAcess && data.identificador == 'Professor') {
+                                        Disciplina.find( (err, disciplinas) =>{
+                                            if(err) console.log(err);
+                                            return res.render('usuario/confirmRegisterProfessor', {disciplinas : disciplinas});
+                                        });
+                                    }
+                                    if (data.isFirstAcess && data.identificador == 'Aluno') {
+                                        Disciplina.find( (err, disciplinas) =>{
+                                            if(err) console.log(err);
+                                            return res.render('usuario/confirmRegisterAluno', {disciplinas : disciplinas});
+                                        });
+                                    }
+                                    if(!data.isFirstAcess){
+                                        return res.render('principal');
+                                    }
                                 });
                             });
                         }
@@ -49,19 +70,49 @@ module.exports = (app) => {
                     if(req.body.login !== req.body.confirmaLogin) return res.render('usuario/create', { errorLoginsNaoBatem: true } );
                     else if(req.body.senha !== req.body.confirmaSenha) return res.render('usuario/create', { errorSenhasNaoBatem: true } );
                     else
-                        var user      = new User();
-                        user.nome     = req.body.nome;
-                        user.login    = req.body.login;
-                        user.senha = req.body.senha;
+                        var user            = new User();
+                        user.nome           = req.body.nome;
+                        user.login          = req.body.login;
+                        user.identificador  = req.body.identificador;
+                        user.senha          = req.body.senha;
                         user.save( (err) => {
-                            return err ? console.log(err) : res.render('login', {sucessCadastro: true} );
+                            return err ? console.log(err) : res.render('login', { sucessCadastro: true } );
                         });
             });
         },
 
         completeRegister : (req, res) => {
-            console.log(req);
-            res.render('/principal');
+            let user = localStorage.getItem('user');
+            
+            if(req.body.periodo_materia1 == req.body.periodo_materia3 ||
+               req.body.periodo_materia2 == req.body.periodo_materia1 ||
+               req.body.periodo_materia3 == req.body.periodo_materia2) {
+                res.render('usuario/confirmRegisterProfessor', { errorDisciplinasIguais: true });
+            }
+            else{
+                let newDisciplina1 = new Disciplina();
+                newDisciplina1.curso     = req.body.curso;
+                newDisciplina1.nome      = req.body.periodo_materia1;
+                newDisciplina1.professor = user;
+                newDisciplina1.save( (err) => {
+                    if(err) console.log(err);
+                        let newDisciplina2 = new Disciplina();
+                        newDisciplina2.curso     = req.body.curso;
+                        newDisciplina2.nome      = req.body.periodo_materia1;
+                        newDisciplina2.professor = user;
+                        newDisciplina2.save( (err) => {
+                            if(err) console.log(err);
+                                let newDisciplina3 = new Disciplina();
+                                newDisciplina3.curso     = req.body.curso;
+                                newDisciplina3.nome      = req.body.periodo_materia1;
+                                newDisciplina3.professor = user;
+                                newDisciplina3.save( (err) => {
+                                    if(err) console.log(err);
+                                    res.render('principal');
+                                });
+                            });
+                });
+            }
         }
     }
 	

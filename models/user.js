@@ -6,12 +6,12 @@ module.exports = () => {
 // Criação de tabela user e sua estrutura.
 	var user  = new Schema({
 
-		login		  : { type: String, unique: true, required: true },
-		senha		  : { type: String, required: true },
+		login		  : { type: String,  unique: true, required: true },
+		senha		  : { type: String,  required: true },
 		nome		  : { type: String  },
 		identificador : { type: String  },
-		sessionpass	  : { type: String  },
-		cadastro	  : { type: Date,   default: Date.now},
+		isFirstAcess  : { type: Boolean, default: true },
+		cadastro	  : { type: Date,    default: Date.now},
 
 	});
 

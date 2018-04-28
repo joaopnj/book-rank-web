@@ -3,7 +3,11 @@ module.exports = (app) => {
 	const Schema       	= mongoose.Schema;
 
 	var livro  = new Schema({
-
+		nome: 			{type : String},
+		descricao : 	{type : String},
+		autor:			{type : String},
+		editora:		{type : String},
+		disciplina:		{type : String}
 	});
 
 	return mongoose.model('livro', livro);
