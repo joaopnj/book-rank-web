@@ -4,7 +4,8 @@ module.exports = (app) => {
 
 	var disciplina  = new Schema({
 		nome: 			         {type : String},
-		professor: 	             {type : String},
+		professor: 	             {type : Object},
+		periodo:				 {type : String},
 		curso:		             {type : String}
 	});
 
