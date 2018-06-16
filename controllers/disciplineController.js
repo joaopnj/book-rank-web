@@ -7,11 +7,11 @@ module.exports = (app) => {
     var DisciplineController = {
 
         disciplinasByAluno: (req, res) => {
-            Disciplina_Aluno.find({ aluno: req.body.aluno }, (err, disciplinas_aluno) => {
+            Disciplina_Aluno.find({ 'aluno.login': req.query.user }, (err, disciplinas_aluno) => {
                 if (err) res.send(400).send('Erro ao recuperar disciplinas por aluno');
                 let response = [];
                 for (let i = 0; i < disciplinas_aluno.length; i++) {
-                    response.push(disciplinas_aluno[i].disciplina);
+                    response.push(disciplinas_aluno[i]);
                 }
                 res.json(response);
             });

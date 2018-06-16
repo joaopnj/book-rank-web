@@ -1,6 +1,6 @@
 module.exports = (app) => {
     
-    var Livro        = app.models.livros;
+    var Livro        = app.models.livro;
 
     var BooksController = {
 
@@ -16,10 +16,19 @@ module.exports = (app) => {
             });
         },
 
-        listByDisciplina: (req, res) => {
-            Livro.find({disciplina : req.query.disciplina}, (err, livros) => {
+        findByName: (req, res) => {
+            Livro.findOne({'nome': req.query.book}, (err, livro) => {
                 if(err) res.status(400).send("Erro ao achar o livro");
-                return !livros ? res.send(400, "Não existe livros para essa disciplina no momento") : res.json(livros);
+                return !livro ? res.send(400, "Não existe livros para essa disciplina no momento") : res.json(livro);
+            });
+        },
+
+        listByDisciplina: (req, res) => {
+            let disciplinaObj = req.query.disciplina.trim();
+            Livro.find({'disciplina' : disciplinaObj}, (err, data) => {
+                console.log(data);
+                if(err) res.status(400).send("Erro ao achar o livro");
+                return !data ? res.send(400, "Não existe livros para essa disciplina no momento") : res.json(data);
             });
         }
 

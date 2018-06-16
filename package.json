@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "average": "*",
     "axios": "^0.18.0",
     "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "*",

@@ -1,8 +1,6 @@
-module.exports = (app) => {
+module.exports = () => {
 	const mongoose     	= require('mongoose');
 	const Schema       	= mongoose.Schema;
-	const Disciplina	= app.models.disciplina;
-	const User			= app.models.user;
 
 	var disciplinaaluno  = new Schema({
 		disciplina: 			 {type : Object},

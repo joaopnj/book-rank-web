@@ -3,12 +3,7 @@ module.exports = (app) => {
     var LocalStorage = require('node-localstorage').LocalStorage;
     localStorage = new LocalStorage('./scratch');
     var bcrypt = require('bcrypt-nodejs');
-    var axios = require('axios');
-    var token = app.middleware.crypto.token();
     var User = app.models.user;
-    var DisciplinaAluno = app.models.disciplina_aluno;
-    var Disciplina = app.models.disciplina;
-    var request = require('request');
 
     var UserController = {
 

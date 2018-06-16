@@ -1,4 +1,4 @@
-module.exports = (app) => {
+module.exports = () => {
 	const mongoose     	= require('mongoose');
 	const Schema       	= mongoose.Schema;
 
