@@ -6,6 +6,17 @@ module.exports = (app) => {
 
     var DisciplineController = {
 
+        disciplinasByProfessor: (req, res) => {
+            Disciplina.find({ 'professor': req.query.user }, (err, disciplina) => {
+                if (err) res.send(400).send('Erro ao recuperar disciplinas por professor');
+                let response = [];
+                for (let i = 0; i < disciplina.length; i++) {
+                    response.push(disciplina[i]);
+                }
+                res.json(response);
+            });
+        },
+
         disciplinasByAluno: (req, res) => {
             Disciplina_Aluno.find({ 'aluno.login': req.query.user }, (err, disciplinas_aluno) => {
                 if (err) res.send(400).send('Erro ao recuperar disciplinas por aluno');
@@ -43,7 +54,8 @@ module.exports = (app) => {
             let disciplinas = req.body.disciplinas;
             let professor = req.body.aluno;
             for (let i = 0; i < disciplinas.length; i++) {
-                Disciplina.findOne({nome : disciplinas[i]}, (disciplina, err) =>{
+                const disciplineName = disciplinas[i].trim(); 
+                Disciplina.find({nome : disciplineName}, (disciplina, err) =>{
                     if (err) res.send(400).send('Erro ao associar disciplinas com professor');
                     if (disciplina.professor === disciplinas[i].professor || disciplina.professor) {
                         res.send(400).send('Erro ao associar disciplinas com professor');
@@ -58,6 +70,8 @@ module.exports = (app) => {
             }
             res.json(disciplinas);
         }
+
+        
 
     }
 

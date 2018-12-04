@@ -5,5 +5,6 @@ module.exports = (app) => {
     app.get ('/disciplinasbyaluno',    disciplina.disciplinasByAluno);
     app.get ('/disciplinasbycurso',    disciplina.disciplinasByCurso);
     app.post('/disciplinaaluno',       disciplina.associateDisciplinaAluno);
-    app.post('/disciplinasprofessor',   disciplina.associateDisciplinaProfessor);
+    app.post('/disciplinasprofessor',  disciplina.associateDisciplinaProfessor);
+    app.get ('disciplinasbyprofessor', disciplina.disciplinasByProfessor);
 }

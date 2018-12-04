@@ -4,13 +4,14 @@ module.exports = (app) => {
 
     var BooksController = {
 
-        createLivro: (req, res) => {
+        createBook: (req, res) => {
             let livro = new Livro();
             livro.nome = req.body.nome;
             livro.descricao = req.body.descricao;
             livro.autor = req.body.autor;
             livro.editora = req.body.editora;
-            livro.disciplina = req.body.disciplina;
+            livro.disciplina = req.body.disciplina.trim();
+            livro.media = 0;
             livro.save( (err) => {
                 return res.json(livro);
             });

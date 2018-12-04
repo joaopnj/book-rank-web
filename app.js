@@ -16,16 +16,16 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 // Configurando acesso a API
 app.use(cors());
+
 load('middleware').then('models').then('controllers').then('routes').into(app);
 
 const mongodb = app.middleware.mongodb;
 
 mongodb.connect();
+
 // Maneira de mostrar o JSON formatado.
 app.set('json spaces', 2);
 
-// Configurando acesso a API
-app.use(cors());
 // ERRORS
 
 // catch 404 and forward to error handler

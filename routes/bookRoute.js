@@ -3,6 +3,6 @@ module.exports = (app) => {
     
     // methods de HTTP, GET, POST, PUT , DELETE
     app.get ('/livrosbydisciplina',    livro.listByDisciplina);
-    app.post('/createivro',            livro.createLivro);
+    app.post('/createbook',            livro.createBook);
     app.get ('/findlivrobyname',       livro.findByName);
 }
