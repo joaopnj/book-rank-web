@@ -7,8 +7,6 @@ const cors         = require('cors');
 
 var app = express();
 
-app.use(cors);
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(logger('dev'));
@@ -16,7 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
-
+// Configurando acesso a API
+app.use(cors());
 load('middleware').then('models').then('controllers').then('routes').into(app);
 
 const mongodb = app.middleware.mongodb;
@@ -26,23 +25,7 @@ mongodb.connect();
 app.set('json spaces', 2);
 
 // Configurando acesso a API
-// app.use((req, res, next) => {
-//     if(req.method == "OPTIONS"){
-//       var headers = {};
-//       headers["Access-Control-Allow-Origin"] = "*";
-//       headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
-//       headers["Access-Control-Allow-Credentials"] = false;
-//       headers["Access-Control-Max-Age"] = '86400'; // 24 hours
-//       headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
-//       res.writeHead(200, headers);
-//       res.end();
-//     }
-//     else{
-//       res.header("Access-Control-Allow-Origin", "*");
-//       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//       next();
-//     }
-// });
+app.use(cors());
 // ERRORS
 
 // catch 404 and forward to error handler
@@ -75,6 +58,7 @@ app.use((err, req, res, next) => {
     error: {}
   });
 });
+
 
 
 module.exports = app;
